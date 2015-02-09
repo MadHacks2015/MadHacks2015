@@ -1,5 +1,8 @@
+@import url(http://fonts.googleapis.com/css?family=Permanent+Marker|Coda);
+
 body {
     background-color: #290e13;
+    font-family: 'Coda', cursive;
 }
 
 /**
