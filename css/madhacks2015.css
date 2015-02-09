@@ -2,8 +2,35 @@ body {
     background-color: #290e13;
 }
 
+/**
+ * My attempt at one of those fancy screen-sized slides.
+ **/
+.vpRow {
+    height: 100vh;
+}
+
+.bg1 {
+    background-color: #060d1a;
+}
+
+.bg2 {
+    background-color: #110f1a;
+}
+
+.bg3 {
+    background-color: #1a0d15;
+}
+
+.bg4 {
+    background-color: #1a080a;
+}
+
+.bg5 {
+    background-color: #1a0a08;
+}
+
 .headerImage {
-    max-height: 90vh;
+    max-height: 85%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
