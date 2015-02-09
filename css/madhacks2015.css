@@ -1,0 +1,11 @@
+body {
+    background-color: #290e13;
+}
+
+.headerImage {
+    max-height: 90vh;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
