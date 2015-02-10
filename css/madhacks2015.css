@@ -5,6 +5,24 @@ body {
     font-family: 'Coda', cursive;
 }
 
+.btn, .btn-xs, .btn-lg, .btn-sm {
+    font-family: 'Permanent Marker', cursive;
+    background-color: #a94442;
+    border-bottom: 2px solid #843534;
+    border-radius: 1em;
+    color: #eeeeee;
+    text-shadow: #111111 4px 4px 8px;
+}
+
+.btn:hover, .btn-xs:hover, .btn-lg:hover, .btn-sm:hover {
+    background-color: #c12e2a;
+    text-decoration: none;
+    color: #eeeeee;
+}
+
+.btn:active, .btn-xs:active, .btn-lg:active, .btn-sm:active {
+    background-color: #843534;
+}
 /**
  * My attempt at one of those fancy screen-sized slides.
  **/
