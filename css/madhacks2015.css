@@ -136,6 +136,9 @@ p {
     background-size: cover;
 }
 
+/**
+ * A few special images with special handling.
+ **/
 .headerImage {
     max-height: 85vh;
     text-align: center;
@@ -144,6 +147,15 @@ p {
     display: block;
 }
 
+.mapImage {
+    border-radius: 0.5em;
+    border-bottom: 0.2em solid #333333;
+    border-right: 0.2em solid #444444;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 90vw;
+}
 
 /**
  * Tint over image backgrounds.
