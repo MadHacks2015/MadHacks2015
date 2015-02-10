@@ -5,9 +5,12 @@ body {
     font-family: 'Coda', cursive;
 }
 
+/**
+ * Hamburger style buttons.
+ **/
 .btn, .btn-xs, .btn-lg, .btn-sm {
     font-family: 'Permanent Marker', cursive;
-    background-color: #a94442;
+    background-color: #c12e2a;
     border-bottom: 2px solid #843534;
     border-radius: 1em;
     color: #eeeeee;
@@ -15,7 +18,7 @@ body {
 }
 
 .btn:hover, .btn-xs:hover, .btn-lg:hover, .btn-sm:hover {
-    background-color: #c12e2a;
+    background-color: #df3531;
     text-decoration: none;
     color: #eeeeee;
 }
@@ -23,11 +26,38 @@ body {
 .btn:active, .btn-xs:active, .btn-lg:active, .btn-sm:active {
     background-color: #843534;
 }
+
+/**
+ * Header fonts, size control
+ **/
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Permanent Marker', cursive;
+    color: #eee;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+p {
+    color: #eee;
+    font-size: 1.5em;
+}
+
 /**
  * My attempt at one of those fancy screen-sized slides.
  **/
 .vpRow {
-    height: 100vh;
+    min-height: 100vh;
+}
+
+/**
+ * Not using a container div around everything since it makes the background
+ * clip, but still want the padding it would have provided.
+ **/
+.row {
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
 .bg1 {
@@ -61,7 +91,7 @@ body {
 }
 
 .headerImage {
-    max-height: 85%;
+    max-height: 85vh;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
