@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Permanent+Marker|Coda);
 
 body {
-    background-color: #290e13;
+    background-color: #0d0406;
     font-family: 'Coda', cursive;
 }
 
@@ -14,22 +14,32 @@ body {
 
 .bg1 {
     background-color: #060d1a;
+    background-image: url('../img/banner1.jpg');
+    background-size: cover;
 }
 
 .bg2 {
     background-color: #110f1a;
+    background-image: url('../img/banner2.jpg');
+    background-size: cover;
 }
 
 .bg3 {
     background-color: #1a0d15;
+    background-image: url('../img/banner3.jpg');
+    background-size: cover;
 }
 
 .bg4 {
     background-color: #1a080a;
+    background-image: url('../img/banner4.jpg');
+    background-size: cover;
 }
 
 .bg5 {
     background-color: #1a0a08;
+    background-image: url('../img/banner5.jpg');
+    background-size: cover;
 }
 
 .headerImage {
