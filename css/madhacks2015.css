@@ -6,14 +6,26 @@ body {
 }
 
 /**
+ * Link colors.
+ **/
+a, a:link, a:visited {
+    color: #c12e2a;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #df3531;
+}
+
+/**
  * Hamburger style buttons.
  **/
 .btn, .btn-xs, .btn-lg, .btn-sm  {
     font-family: 'Permanent Marker', cursive;
     background-color: #4b4b4b;
     border-bottom: 2px solid #323232;
-    border-radius: 1em;
-    color: #eeeeee;
+    border-radius: 0.5em;
+    color: #eeeeee !important;
     text-shadow: #111111 4px 4px 8px;
     text-align: center;
     text-decoration: none;
