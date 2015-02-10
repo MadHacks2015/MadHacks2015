@@ -8,23 +8,55 @@ body {
 /**
  * Hamburger style buttons.
  **/
-.btn, .btn-xs, .btn-lg, .btn-sm {
+.btn, .btn-xs, .btn-lg, .btn-sm  {
     font-family: 'Permanent Marker', cursive;
-    background-color: #c12e2a;
-    border-bottom: 2px solid #843534;
+    background-color: #4b4b4b;
+    border-bottom: 2px solid #323232;
     border-radius: 1em;
     color: #eeeeee;
     text-shadow: #111111 4px 4px 8px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn:focus, .btn-xs:focus, .btn-lg:focus, .btn-sm:focus {
+    text-decoration: none;
 }
 
 .btn:hover, .btn-xs:hover, .btn-lg:hover, .btn-sm:hover {
-    background-color: #df3531;
+    background-color: #5b5b5b;
     text-decoration: none;
     color: #eeeeee;
 }
 
 .btn:active, .btn-xs:active, .btn-lg:active, .btn-sm:active {
+    background-color: #323232;
+}
+
+.usr-btn-red {
+    background-color: #c12e2a;
+    border-bottom: 2px solid #843534;
+}
+
+.usr-btn-red:hover {
+    background-color: #df3531;
+}
+
+.usr-btn-red:active {
     background-color: #843534;
+}
+
+.usr-btn-dark {
+    background-color: #8b211e;
+    border-bottom: 2px solid #681917;
+}
+
+.usr-btn-dark:hover {
+    background-color: #aa2925;
+}
+
+.usr-btn-dark:active {
+    background-color: #681917;
 }
 
 /**
@@ -42,6 +74,8 @@ h1 {
 p {
     color: #eee;
     font-size: 1.5em;
+    text-align: justify;
+    text-shadow: #333333 1px 1px 0px ;
 }
 
 /**
@@ -96,4 +130,24 @@ p {
     margin-left: auto;
     margin-right: auto;
     display: block;
+}
+
+
+/**
+ * Tint over image backgrounds.
+ **/
+.overlayBlockDark {
+    background-color: rgba(1, 1, 1, 0.55);
+    padding: 1em;
+    border-radius: 0.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.overlayBlock {
+    background-color: rgba(1, 1, 1, 0.15);
+    padding: 1em;
+    border-radius: 0.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
