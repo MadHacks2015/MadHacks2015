@@ -141,6 +141,7 @@ p {
  **/
 .headerImage {
     max-height: 85vh;
+    max-width: 85vw;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
