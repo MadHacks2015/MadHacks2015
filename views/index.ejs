@@ -30,7 +30,8 @@
         function toTop(element) {
 
             if (isMobile()) {
-                $('html, body').scrollTop($(element).offset().top);
+                // Do nothing, let the anchor tags handle it...
+                //$('html, body').scrollTop($(element).offset().top);
             }else {
                 $('html, body').animate({
                     scrollTop: $(element).offset().top
@@ -70,19 +71,19 @@
             <p>Join us for a weekend of non-stop hacking, and show us
                 what
                 you're made of!</p>
-            <a href="#"
+            <a href="#row4"
                class="btn-lg usr-btn-red btn-block"
                     onclick="toTop('#row4'); return false;" >Apply!</a>
             <br /><br />
             <p>Are you interested in sponsoring, volunteering, or mentoring
                 us?</p>
-            <a href="#"
+            <a href="#row5"
                class="btn-lg usr-btn-dark btn-block"
                onclick="toTop('#row5'); return false;" >Sponsor MadHacks!</a>
             <br /><br />
             <p>See how MadHacks will change the landscape of hackathons!
                 </p>
-            <a href="#"
+            <a href="#row2"
                class="btn-lg usr-btn-dark btn-block"
                onclick="toTop('#row2'); return false;">
                 Tell me more!
@@ -153,7 +154,7 @@
                 middle of the hacker community itself &mdash; rather than on
                 the outside looking in.</p>
 
-            <a href="#" class="btn-lg btn-block"
+            <a href="#row3" class="btn-lg btn-block"
                onclick="toTop('#row3'); return false;">
                 I've got more questions...
             </a>
@@ -254,7 +255,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="overlayBlock">
-                <a href="#" class="btn btn-block usr-btn-red"
+                <a href="#row4" class="btn btn-block usr-btn-red"
                 onclick="toTop('#row4'); return false">
                     I'm convinced! Sign me up!
                 </a>
@@ -296,7 +297,7 @@
             event. Sponsors are being added by the day, so keep an eye out for
                 your favorite tech product, company, or platform!
                 </p>
-            <a href="#" class="btn btn-block"
+            <a href="#5" class="btn btn-block"
                     onclick="toTop('#row5'); return false;">
                 Sponsor details
             </a>
