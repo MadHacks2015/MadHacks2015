@@ -29,7 +29,7 @@ app.post('/hook', function(req, res) {
   system.exec("git pull");
   system.exec("forever start mad.js");
 
-  res.status(200).send({});
+  res.send(200, {});
 });
 
 app.use('/', routes);
