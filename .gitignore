@@ -1,1 +1,9 @@
 .idea
+
+node_modules
+!node_modules/sqler
+
+resumes
+!resume/.keep
+
+db.sqlite
