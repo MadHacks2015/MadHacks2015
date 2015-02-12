@@ -14,23 +14,27 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(favicon());
+app.use(favicon("/img/favicon.png"));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
 
 app.post('/hook', function(req, res) {
-  console.log("hook, pulling")
+  console.log("hook, pulling", req.body)
+  if(req.body.secret == "madhackshook")
   system.exec("forever stop mad.js");
   system.exec("git pull");
   system.exec("forever start mad.js");
+
   res.status(200).send({});
 });
+
+app.use('/', routes);
+app.use('/users', users);
+
 
 
 /// catch 404 and forwarding to error handler
