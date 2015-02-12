@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/hook', function(req, res) {
   console.log("hook, pulling", req.body)
-  if(req.body.secret == "madhackshook")
+  // if(req.body.secret == "madhackshook")
   system.exec("forever stop mad.js");
   system.exec("git pull");
   system.exec("forever start mad.js");
@@ -51,7 +51,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
-        res.render('main', {
+        res.render('index', {
             message: err.message,
             error: err
         });
@@ -62,7 +62,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('main', {
+    res.render('index', {
         message: err.message,
         error: {}
     });
