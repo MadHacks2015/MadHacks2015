@@ -24,6 +24,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 
+app.post('/hook', function(req, res) {
+  console.log("hook, pulling")
+  system.exec("forever stop mad.js");
+  system.exec("git pull");
+  system.exec("forever start mad.js");
+  res.status(200).send({});
+});
+
+
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
