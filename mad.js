@@ -21,15 +21,28 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var util   = require('util');
+var exec  = require('child_process').exec;
 
-app.post('/hook', function(req, res) {
-  console.log("hook, pulling", req.body)
-  // if(req.body.secret == "madhackshook")
-  system.exec("forever stop mad.js");
-  system.exec("git pull");
-  system.exec("forever start mad.js");
-
-  res.send(200, {});
+app.post('/hook', function(req, res) {  
+  //pull
+  exec('git pull',
+    function (error, stdout, stderr) {
+      console.log('stdout: ' + stdout);
+      console.log('stderr: ' + stderr);
+      if (error !== null)
+        console.log('exec error: ' + error);
+      else //restart server
+          exec('forever restart mad.js',
+            function (error, stdout, stderr) {
+              console.log('stdout: ' + stdout);
+              console.log('stderr: ' + stderr);
+              if (error !== null) 
+                console.log('exec error: ' + error);
+              res.send(200, {});
+          });
+    });
+  
 });
 
 app.use('/', routes);
