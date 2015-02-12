@@ -158,6 +158,13 @@ p {
     max-width: 90vw;
 }
 
+.sponsorLogo {
+    max-width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /**
  * Tint over image backgrounds.
  **/
