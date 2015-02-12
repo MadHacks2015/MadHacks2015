@@ -1,9 +1,9 @@
 .idea
 
-node_modules
+node_modules/*
 !node_modules/sqler
 
-resumes
+resumes/*
 !resume/.keep
 
 db.sqlite
