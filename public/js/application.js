@@ -25,7 +25,6 @@ var align = function(){
 }
 var order = function(){
     for (var i = 0; i <= currentSection; i++) {
-        alert('current section is ' + currentSection);
         $('#' + sections[i]).css({"display" : "block"});
     }
 
