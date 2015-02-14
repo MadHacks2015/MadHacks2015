@@ -1,14 +1,14 @@
 <%include part_head %>
-<form class="container" id="application" action="/users/<%= update=="true" ? "update" : 'apply' %>" method="POST">
+<form id="application" action="/users/<%= update=="true" ? "update" : 'apply' %>" method="POST">
 	
-	<div id="general" class="inner" style="display:none;">
-		<div class="hackCity">General</div>
+	<div id="general">
+		<div>General</div>
 		<ul>
-			<li class="split">
+			<li>
 				<input type="text" id="general-last-name" name="firstname" placeholder="First Name" value="<%= firstname %>">
 				<input type="text" id="general-first-name" name="lastname" placeholder="Last Name" value="<%= lastname %>">
 			</li>
-			<li class="split">
+			<li>
 				<input type="text" id="general-email" name="email" placeholder="Email" value="<%= email %>">
 				<input type="password" id="general-password" name="password" placeholder="Password">
 			</li>
@@ -31,14 +31,14 @@
 			<li>
 				<hr>
 			</li>
-			<li class="split">
+			<li>
 				<div></div>
-				<button id="validate-general" class="right btn" type="button"><div>Next</div></button>
+				<button id="validate-general" type="button"><div>Next</div></button>
 			</li>
 		</ul>
 	</div>
-	<div id="school" class="inner" style="display:none;">
-		<div class="hackCity">School</div>
+	<div id="school" style="display:none;">
+		<div>School</div>
 		<ul>
 			<li>
 				<input type="checkbox" id="school-attend-school" name="attend_school" <%= attend_school=="true" ? "checked" : '' %>>
@@ -47,11 +47,11 @@
 			<li id="school-selector" <%= attend_school=="false" ? "style=display:none;" : '' %>>
 				<input type="text" id="school-school" name="school" placeholder="School" value="<%= school %>">
 			</li>
-			<li class="split">
+			<li>
 				<%include part_state_select %>
 				<%include part_country_select %>
 			</li>
-			<li class="split">
+			<li>
 				<input type="text" id="school-city" name="city" placeholder="City" value="<%= city %>">
 				<input type="text" id="school-zip" name="zip" placeholder="Zip" value="<%= zip %>">
 			</li>
@@ -66,104 +66,104 @@
 					<label for="school-travel-yes">Yes:<div><div></div></div></label>
 				</div>
 			</li>
-			<li id="venmo" class="split" <%= travel=="false" ? 'style=display:none;' : '' %>>
+			<li id="venmo" <%= travel=="false" ? 'style=display:none;' : '' %>>
 				<span>venmo.com/</span>
 				<input type="text" id="school-venmo" name="venmo" placeholder="Venmo ID" value="<%= venmo %>">
 			</li>
 			<li>
 				<hr>
 			</li>
-			<li class="split">
-				<button class="left btn" type="button"><div>Previous</div></button>
-				<button id="validate-school" class="right btn" type="button"><div>Next</div></button>
+			<li>
+				<button type="button"><div>Previous</div></button>
+				<button id="validate-school" type="button"><div>Next</div></button>
 			</li>
 		</ul>
 	</div>
-	<div id="diet" class="inner" style="display:none;">
-		<div class="hackCity">Diet</div>
+	<div id="diet" style="display:none;">
+		<div>Diet</div>
 		<ul>
 			<li>
 				<span>Dietary Restrictions</span>
 			</li>
-			<li class="split">
-				<div class="label">
+			<li>
+				<div>
 					<input type="checkbox" id="apply-food-vegetarian" name="food_vegetarian" <%= food_vegetarian=="true" ? "checked" : '' %>>
 					<label for="apply-food-vegetarian">Vegetarian&nbsp;<div><div></div></div></label>
 				</div>
-				<div class="label">
+				<div>
 					<input type="checkbox" id="apply-food-vegan" name="food_vegan" <%= food_vegan=="true" ? "checked" : '' %>>
 					<label for="apply-food-vegan"><div><div></div></div>&nbsp;Vegan</label>
 				</div>
 			</li>
-			<li class="split">
-				<div class="label">
+			<li>
+				<div>
 					<input type="checkbox" id="apply-food-glutenfree" name="food_glutenfree" <%= food_glutenfree=="true" ? "checked" : '' %>>
 					<label for="apply-food-glutenfree">&nbsp;Gluten Free<div><div></div></div></label>	
 				</div>
-				<div class="label">
+				<div>
 					<input type="checkbox" id="apply-food-pescetarian" name="food_pescetarian" <%= food_pescetarian=="true" ? "checked" : '' %>>
 					<label for="apply-food-pescetarian"><div><div></div></div>&nbsp;Pescetarian</label>
 				</div>
 			</li>
-			<li class="split">
-				<div class="label">
+			<li>
+				<div>
 					<input type="checkbox" id="apply-food-dairyfree" name="food_dairyfree" <%= food_dairyfree=="true" ? "checked" : '' %>>
 					<label for="apply-food-dairyfree">Dairy Free&nbsp;<div><div></div></div></label>
 				</div>
-				<div class="label">
+				<div>
 					<input type="checkbox" id="apply-food-kosher" name="food_kosher" <%= food_kosher=="true" ? "checked" : '' %>>
 					<label for="apply-food-kosher"><div><div></div></div>&nbsp;Kosher</label>
 				</div>
 			</li>
-			<li class="split">
-				<div class="label">
+			<li>
+				<div>
 					<input type="checkbox" id="apply-food-halal" name="food_halal" <%= food_halal=="true" ? "checked" : '' %>>
 					<label for="apply-food-halal">Halal&nbsp;<div><div></div></div></label>
 				</div>
-				<input type="text" id="apply-food-other" style="padding-top:0;margin-top:0;" name="food_other" placeholder="Other" value="<%= food_other %>"> 
+				<input type="text" id="apply-food-other" style="padding-top:0;margin-top:0;" name="food_other" placeholder="Other" value="<%= food_other %>">
 			</li>
 			<li>
 				<hr>
 			</li>
-			<li class="split">
-				<button class="left btn" type="button"><div>Previous</div></button>
-				<button id="validate-diet" class="right btn" type="button"><div>Next</div></button>
+			<li>
+				<button type="button"><div>Previous</div></button>
+				<button id="validate-diet" type="button"><div>Next</div></button>
 			</li>
 		</ul>
 	</div>
-	<div id="resume" class="inner" style="display:none;">
-		<div class="hackCity">Professional</div>
+	<div id="resume" style="display:none;">
+		<div>Professional</div>
 		<ul>
-			<li class="split">
+			<li>
 				<span>github.com/</span>
 				<input type="text" id="apply-Github" name="Github" placeholder="Github" value="<%= Github %>">
 			</li>
-			<li class="split">
+			<li>
 				<span>linkedin.com/in/</span>
 				<input type="text" id="apply-linkedIn" name="linkedIn" placeholder="linkedIn" value="<%= linkedIn %>">
 			</li>
-			<li class="split">
+			<li>
 				<span>dribbble.com/</span>
 				<input type="text" id="apply-Dribble" name="Dribble" placeholder="Dribble" value="<%= Dribble %>">
 			</li>
-			<li class="split">
+			<li>
 				<span>Resume</span>
 				<input style="display:none" id="resume-button-shadow" type="file" name="resume" <%= resume!="Select Resume" ? "data-done='"+resume+"" : '' %>>
-				<button id="resume-button" type="button" class=" btn">
+				<button id="resume-button" type="button">
 					<div><%= resume %></div>
 				</button>
 			</li>
 			<li>
 				<hr>
 			</li>
-			<li class="split">
-				<button class="left btn" type="button"><div>Previous</div></button>
-				<button id="validate-resume" class="right btn" type="button"><div>Next</div></button>
+			<li>
+				<button type="button"><div>Previous</div></button>
+				<button id="validate-resume" type="button"><div>Next</div></button>
 			</li>
 		</ul>
 	</div>
-	<div id="hacker" class="inner" style="display:none;">
-		<div class="hackCity">Hacker</div>
+	<div id="hacker" style="display:none;">
+		<div>Hacker</div>
 		<ul>
 			<li>
 				<label for="hacker-exposure">How did you hear about MadHacks?</label>
@@ -199,9 +199,9 @@
 			<li>
 				<hr>
 			</li>
-			<li class="split">
-				<button class="left btn" type="button"><div>Previous</div></button>
-				<button class="right btn" type="submit"><div>
+			<li>
+				<button type="button"><div>Previous</div></button>
+				<button type="submit"><div>
 					<%= update=="true" ? "Update" : 'Submit' %>
 				</div></button>
 			</li>
@@ -209,17 +209,17 @@
 
 		</ul>
 	</div>
-	<div id="success" class="inner" style="display:none;">
-		<div class="hackCity">Success</div>
+	<div id="success" style="display:none;">
+		<div>Success</div>
 		<ul style="text-align:center;">
 			<li>
 				<img src="/img/logo.png">
 			</li>
 			<li>
-				<span><span class="hack">#Hack</span><span class="city">City</span></span>
+				<span><span>#Hack</span><span>City</span></span>
 			</li>
 			<li>
-				<hr class="withbottom">
+				<hr>
 			</li>
 			<li>
 				<span><%= update=="true" ? "If You haven't yet, p" : 'P' %>lease take a moment to fill out an optional and anonymous survey</span>
@@ -227,22 +227,22 @@
 			<li>
 				<hr>
 			</li>
-			<li class="split">
+			<li>
 				<div></div>
-				<button id="anon-surv" class="right btn" type="button"><div>Anonymous Survey</div></button>
+				<button id="anon-surv" type="button"><div>Anonymous Survey</div></button>
 			</li>
 		</ul>
 	</div>
 </form>
 <form id="anon" action="/users/anon" method="POST">
-	<div id="survey" class="inner" style="display:none;">
+	<div id="survey" style="display:none;">
 		<ul>
-			<div class="hackCity">Spooky Anon</div>
-			<li class="split">
+			<div>Spooky Anon</div>
+			<li>
 				<%include part_state_select%>
 				<input type="text" name="age" placeholder="Age">
 			</li>
-			<li class="split">
+			<li>
 				<select name="degree">
 					<option selected disabled hidden value='#'>Study</option>
 					<option value="cs">Computer Science</option>
@@ -266,7 +266,7 @@
 					<option value="graduate">Graduate</option>
 				</select>
 			</li>
-			<li class="split">
+			<li>
 				<select name="gender">
 					<option selected disabled hidden value='#'>Gender</option>
 					<option value="male">Hacker Boy</option>
@@ -284,11 +284,11 @@
 					<option value="o">Other</option>
 				</select>
 			</li>
-			<li class="split">
+			<li>
 				<span>How many Hackathons have you been to?</span>
 				<input type="text" name="hacks" placeholder=">9000">
 			</li>
-			<li class="split">
+			<li>
 				<span>How many of your parents/guardians have college degrees?</span>
 				<select name="parent_education">
 					<option value="none">None</option>
@@ -296,25 +296,25 @@
 					<option value="multiple">Multiple</option>
 				</select>
 			</li>
-			<li class="split">
+			<li>
 				<span>What is your background?</span>
 				<input type="text" name="background" placeholder='"designer/programmer"'>
 			</li>
 			<li>
 				<hr>
 			</li>
-			<li class="split">
+			<li>
 				<div></div>
-				<button class="right btn" type="submit" id="anon-submit"><div>Submit</div></button>
+				<button type="submit" id="anon-submit"><div>Submit</div></button>
 			</li>
 		</ul>
 	</div>
 </form>
-<div id="thanks" class="inner" style="display:none;">
-	<div class="hackCity">Thanks!</div>
+<div id="thanks" style="display:none;">
+	<div>Thanks!</div>
 	<ul style="text-align:center;">
 		<li style="margin-top:30px;">
-			<span><span class="hack">#Hack</span><span class="city">City</span></span>
+			<span><span>#Hack</span><span>City</span></span>
 		</li>
 	</ul>
 </div>
