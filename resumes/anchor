@@ -1,0 +1,1 @@
+This file enforces the creation of the resumes directory becausthe code crashes if the directory doesn't exist
