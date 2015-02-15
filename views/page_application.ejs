@@ -50,7 +50,7 @@
     </div>
 
 
-    <div id="school" style="display:none;">
+    <div id="school"> <!--style="display:none;"-->
         <h2>School and Travel</h2>
 
         <div class="form-group">
@@ -118,99 +118,81 @@
     </div>
 
 
-    <div id="diet" style="display:none;">
-        <div>Diet</div>
-        <ul>
-            <li>
-                <span>Dietary Restrictions</span>
-            </li>
-            <li>
-                <div>
-                    <input type="checkbox" id="apply-food-vegetarian"
-                           name="food_vegetarian" <%= food_vegetarian == "true" ? "checked" : '' %>>
-                    <label for="apply-food-vegetarian">Vegetarian&nbsp;
-                        <div>
-                            <div></div>
-                        </div>
-                    </label>
-                </div>
-                <div>
-                    <input type="checkbox" id="apply-food-vegan"
-                           name="food_vegan" <%= food_vegan == "true" ? "checked" : '' %>>
-                    <label for="apply-food-vegan">
-                        <div>
-                            <div></div>
-                        </div>
-                        &nbsp;Vegan</label>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <input type="checkbox" id="apply-food-glutenfree"
-                           name="food_glutenfree" <%= food_glutenfree == "true" ? "checked" : '' %>>
-                    <label for="apply-food-glutenfree">&nbsp;Gluten Free
-                        <div>
-                            <div></div>
-                        </div>
-                    </label>
-                </div>
-                <div>
-                    <input type="checkbox" id="apply-food-pescetarian"
-                           name="food_pescetarian" <%= food_pescetarian == "true" ? "checked" : '' %>>
-                    <label for="apply-food-pescetarian">
-                        <div>
-                            <div></div>
-                        </div>
-                        &nbsp;Pescetarian</label>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <input type="checkbox" id="apply-food-dairyfree"
-                           name="food_dairyfree" <%= food_dairyfree == "true" ? "checked" : '' %>>
-                    <label for="apply-food-dairyfree">Dairy Free&nbsp;
-                        <div>
-                            <div></div>
-                        </div>
-                    </label>
-                </div>
-                <div>
-                    <input type="checkbox" id="apply-food-kosher"
-                           name="food_kosher" <%= food_kosher == "true" ? "checked" : '' %>>
-                    <label for="apply-food-kosher">
-                        <div>
-                            <div></div>
-                        </div>
-                        &nbsp;Kosher</label>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <input type="checkbox" id="apply-food-halal"
-                           name="food_halal" <%= food_halal == "true" ? "checked" : '' %>>
-                    <label for="apply-food-halal">Halal&nbsp;
-                        <div>
-                            <div></div>
-                        </div>
-                    </label>
-                </div>
-                <input type="text" id="apply-food-other" name="food_other"
-                       placeholder="Other" value="<%= food_other %>">
-            </li>
-            <li>
-                <hr>
-            </li>
-            <li>
-                <button type="button">
-                    <div>Previous</div>
-                </button>
-                <button id="validate-diet" type="button">
-                    <div>Next</div>
-                </button>
-            </li>
-        </ul>
+    <div id="diet"> <!--style="display:none;"-->
+        <h2>Dietary Restrictions</h2>
+
+        <div class="form-group">
+            <div class="checkbox">
+                <label><h4>
+                        <input type="checkbox" id="apply-food-vegetarian"
+                               name="food_vegetarian" <%= food_vegetarian == "true" ? "checked" : '' %>>
+                        Vegetarian
+                    </h4></label>
+            </div>
+
+            <div class="checkbox">
+                <label><h4>
+                        <input type="checkbox" id="apply-food-vegan"
+                               name="food_vegan" <%= food_vegan == "true" ? "checked" : '' %>>
+                        Vegan
+                    </h4></label>
+            </div>
+
+            <div class="checkbox">
+                <label><h4>
+                        <input type="checkbox" id="apply-food-glutenfree"
+                               name="food_glutenfree" <%= food_glutenfree == "true" ? "checked" : '' %>>
+                        Gluten Free
+                    </h4></label>
+                </label>
+            </div>
+
+            <div class="checkbox">
+                <label><h4>
+                        <input type="checkbox" id="apply-food-pescetarian"
+                               name="food_pescetarian" <%= food_pescetarian == "true" ? "checked" : '' %>>
+                        Pescetarian
+                    </h4></label>
+            </div>
+
+
+            <div class="checkbox"><label><h4>
+                        <input type="checkbox" id="apply-food-dairyfree"
+                               name="food_dairyfree" <%= food_dairyfree == "true" ? "checked" : '' %>>Dairy Free
+                    </h4></label>
+            </div>
+
+            <div class="checkbox"><label><h4>
+                        <input type="checkbox" id="apply-food-kosher"
+                               name="food_kosher" <%= food_kosher == "true" ? "checked" : '' %>>
+
+                        Kosher</h4></label>
+            </div>
+
+            <div class="checkbox">
+                <label for="apply-food-halal"><h4>
+                        <input type="checkbox" id="apply-food-halal"
+                               name="food_halal" <%= food_halal == "true" ? "checked" : '' %>>
+                        Halal
+                    </h4></label>
+            </div>
+
+            <label for="apply-food-other">Other</label>
+            <input type="text" id="apply-food-other" name="food_other" class="form-control"
+                   value="<%= food_other %>">
+
+            <br/>
+            <a href="#" class="btn-lg previous">
+                Previous
+            </a>&nbsp;
+            <a id="validate-diet" class="btn-lg usr-btn-red">
+                Next
+            </a>
+        </div>
     </div>
-    <div id="resume" style="display:none;">
+
+
+    <div id="resume"> <!--style="display:none;"-->
         <div>Professional</div>
         <ul>
             <li>
@@ -246,7 +228,8 @@
             </li>
         </ul>
     </div>
-    <div id="hacker" style="display:none;">
+
+    <div id="hacker"> <!--style="display:none;"-->
         <div>Hacker</div>
         <ul>
             <li>
@@ -320,7 +303,7 @@
 
         </ul>
     </div>
-    <div id="success" style="display:none;">
+    <div id="success"> <!--style="display:none;"-->
         <div>Success</div>
         <ul>
             <li>
@@ -347,6 +330,11 @@
         </ul>
     </div>
 </form>
+
+
+    <!-- todo: remove this survey for now...
+
+
 <form id="anon" action="/users/anon" method="POST">
     <div id="survey" style="display:none;">
         <ul>
@@ -425,6 +413,9 @@
         </ul>
     </div>
 </form>
+-->
+
+
 <div id="thanks" style="display:none;">
     <div>Thanks!</div>
     <ul>
