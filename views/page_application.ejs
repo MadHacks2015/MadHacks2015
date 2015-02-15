@@ -193,40 +193,33 @@
 
 
     <div id="resume"> <!--style="display:none;"-->
-        <div>Professional</div>
-        <ul>
-            <li>
-                <span>github.com/</span>
-                <input type="text" id="apply-Github" name="Github" placeholder="Github" value="<%= Github %>">
-            </li>
-            <li>
-                <span>linkedin.com/in/</span>
-                <input type="text" id="apply-linkedIn" name="linkedIn" placeholder="linkedIn" value="<%= linkedIn %>">
-            </li>
-            <li>
-                <span>dribbble.com/</span>
-                <input type="text" id="apply-Dribble" name="Dribble" placeholder="Dribble" value="<%= Dribble %>">
-            </li>
-            <li>
-                <span>Resume</span>
+        <h2>Professional</h2>
+        <p>These can either be usernames or URLs, we'll figure it out.</p>
+        <div class="form-group">
+                <label for="apply-Github">GitHub</label>
+                <input type="text" id="apply-Github" name="Github" class="form-control" value="<%= Github %>">
+
+                <label for="apply-linkedIn">LinkedIn</label>
+                <input type="text" id="apply-linkedIn" name="linkedIn" class="form-control" value="<%= linkedIn %>">
+
+                <label for="apply-Dribble">Dribbble</label>
+                <input type="text" id="apply-Dribble" name="Dribble" class="form-control" value="<%= Dribble %>">
+
+                <label for="resume-button">Resume</label>
                 <input style="display:none" id="resume-button-shadow" type="file"
                        name="resume" <%= resume != "Select Resume" ? "data-done='" + resume + "" : '' %>>
-                <button id="resume-button" type="button">
+                <button id="resume-button" class="form-control" type="button">
                     <div><%= resume %></div>
                 </button>
-            </li>
-            <li>
-                <hr>
-            </li>
-            <li>
-                <button type="button">
-                    <div>Previous</div>
-                </button>
-                <button id="validate-resume" type="button">
-                    <div>Next</div>
-                </button>
-            </li>
-        </ul>
+
+                <br />
+                <a href="#" class="btn-lg previous">
+                    Previous
+                </a>&nbsp;
+                <a id="validate-resume" class="btn-lg usr-btn-red">
+                    Next
+                </a>
+        </div>
     </div>
 
     <div id="hacker"> <!--style="display:none;"-->
