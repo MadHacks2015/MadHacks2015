@@ -1,6 +1,11 @@
-    <% include part_head %>
+<% include part_head %>
 <div class="container">
 
+    <div class="row">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-8">
 <form id="application" action="/users/<%= update == "true" ? "update" : 'apply' %>" method="POST">
 
     <div id="general">
@@ -304,6 +309,10 @@
         </div>
     </div>
 </form>
+</div>
+        <div class="col-md-2">
 
+        </div>
+        </div>
 </div>
 <% include part_foot %>
