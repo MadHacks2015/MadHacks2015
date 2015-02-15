@@ -12,6 +12,10 @@ var orderArr = [
 	[7,6,5,4,3,2,1,0,1],
 	[8,7,6,5,4,3,2,1,0]
 ];
+
+var sections = ["general", "school", "diet", "resume", "hacker", "success"];
+var currentSection = 0;
+
 var align = function(){
 	$.each(paras, function(index, obj){
 		var top = $(shades[showing+1]).scrollTop();
@@ -20,8 +24,15 @@ var align = function(){
 	});
 }
 var order = function(){
+    for (var i = 0; i <= currentSection; i++) {
+        $('#' + sections[i]).css({"display" : "block"});
+    }
+
+    return;
+    // Old code below...
+
 	$.each(shades, function(index, obj){
-		index -= 1;				
+		index -= 1;
 		var left, zindex, opacity;
 
 		if($(obj).attr("id") == "footerInner"){
@@ -44,7 +55,7 @@ var order = function(){
 				left += "px";
 			}
 		}
-		
+
 		$(obj).css({"left":left, "z-index":1000-zindex, "opacity":opacity });
 	});
 	align();
@@ -63,10 +74,16 @@ $(document).ready(function(){
 	});
 	$(".inner").show(0);
 	var moveRight = function(){
+
+        currentSection++;
+        order();
+        return;
+        // Old code below...
+
 		showing = (showing+1) % shades.length;
 		order();
 	};
-					
+
 	$(".left").click(function(){
 		showing = (showing-1) % shades.length;
 		order();
@@ -118,7 +135,7 @@ $(document).ready(function(){
 			$this.find("#general-email").addClass("error");
 		validateLength($this.find("#general-password"));
 		validateSelect($this.find("#general-swag-size"));
-		
+
 		if($this.find(".error").length <= 0)
 			moveRight();
 	});
@@ -134,7 +151,7 @@ $(document).ready(function(){
 		if($this.find("#school-travel-yes").prop("checked")){
 			validateLength($this.find("#school-venmo"));
 		}
-		
+
 		if($this.find(".error").length <= 0)
 			moveRight();
 	});
@@ -154,7 +171,7 @@ $(document).ready(function(){
 		}else
 			moveRight()
 	});
-	
+
 	$("form").on("change", ".error", function (){
 		$(this).removeClass("error");
 		if($(this).attr("type") == "file")
@@ -170,11 +187,11 @@ $(document).ready(function(){
 	});
 	$("#application").submit(function (e){
 		e.preventDefault();
-		
+
 		var data = new FormData();
 		$.each($("#application input, #application select"), function(index, obj){
 			console.log($(obj).attr("type"), $(obj).attr("name"), $(obj).val())
-			
+
 			if( !($(obj).is("select")) && $(obj).attr("type") == "checkbox"){
 				data.append($(obj).attr("name"), $(obj).prop("checked"))
 			}else{
@@ -182,7 +199,7 @@ $(document).ready(function(){
 			}
 		});
 		data.append("travel", $('input[name=travel]:checked').val());
-		
+
 		if(resume == undefined)
 			data.append("resume", $("#resume-button-shadow").attr("data-done"));
 		else
