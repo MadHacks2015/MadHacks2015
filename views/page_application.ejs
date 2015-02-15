@@ -223,80 +223,90 @@
     </div>
 
     <div id="hacker"> <!--style="display:none;"-->
-        <div>Hacker</div>
-        <ul>
-            <li>
-                <label for="hacker-exposure">How did you hear about MadHacks?</label>
-                <textarea multiline="true" id="hacker-exposure"><%= exposure %></textarea>
-                <input type="text" id="hacker-exposure-shadow" style="display:none;" name="exposure"
-                       value="<%= exposure %>">
-            </li>
-            <li>
-                <input type="checkbox" id="hacker-plan-hardware"
-                       name="plan_hardware" <%= plan_hardware == "true" ? "checked" : '' %>>
-                <label for="hacker-plan-hardware">Do you plan to hack on hardware?
-                    <div>
-                        <div></div>
-                    </div>
+        <h2>Hacker</h2>
+
+        <div class="form-group">
+
+            <label for="hacker-exposure">How did you hear about MadHacks?</label>
+            <textarea multiline="true" class="form-control" id="hacker-exposure"><%= exposure %></textarea>
+            <input type="text" id="hacker-exposure-shadow" style="display:none;" name="exposure"
+                   value="<%= exposure %>">
+
+            <div class="checkbox">
+                <label>
+                    <h4>
+                        <input type="checkbox" id="hacker-plan-hardware"
+                               name="plan_hardware" <%= plan_hardware == "true" ? "checked" : '' %>>
+                        I'm planning a hardware hack!
+                    </h4>
                 </label>
-            </li>
-            <li id="plan-hardware-on" <%= plan_hardware == "true" ? '' : 'style=display:none;' %>>
-                <label for="hacker-exposure">What Hardware do you want to hack on?</label>
-                <textarea multiline="true" id="hacker-plan-hardware-on"><%= plan_hardware_on %></textarea>
+            </div>
+
+
+            <div id="plan-hardware-on" <%= plan_hardware == "true" ? '' : 'style=display:none;' %>>
+                <label for="hacker-exposure">What kind of hardware?</label>
+                <textarea multiline="true" class="form-control" id="hacker-plan-hardware-on"><%= plan_hardware_on %></textarea>
                 <input type="text" name="plan_hardware_on" id="hacker-plan-hardware-on-shadow" style="display:none;"
                        value="<%= plan_hardware_on %>">
-            </li>
-            <li>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    <h4>
                 <input type="checkbox" id="hacker-plan-mentee"
                        name="plan_mentee" <%= plan_mentee == "true" ? "checked" : '' %>>
-                <label for="hacker-plan-mentee">Do you want to be a mentee?
-                    <div>
-                        <div></div>
-                    </div>
+                            I'd want to be mentored by other hackers
+                        </h4>
                 </label>
-            </li>
-            <li>
+            </div>
+
+
+            <div class="checkbox">
+                <label><h4>
                 <input type="checkbox" id="hacker-plan-mentor"
                        name="plan_mentor" <%= plan_mentor == "true" ? "checked" : '' %>>
-                <label for="hacker-plan-mentor">Do you want to be a mentor?
-                    <div>
-                        <div></div>
-                    </div>
+                    I'd love to be a mentor
+                    </h4>
                 </label>
-            </li>
-            <li>
-                <input type="checkbox" id="hacker-need-partner"
-                       name="need_partner" <%= need_partner == "true" ? "checked" : '' %>>
-                <label for="hacker-need-partner">Are you looking for partners?
-                    <div>
-                        <div></div>
-                    </div>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    <h4>
+                        <input type="checkbox" id="hacker-need-partner"
+                               name="need_partner" <%= need_partner == "true" ? "checked" : '' %>>
+                        I'm looking for partners
+                    </h4>
                 </label>
-            </li>
-            <li id="partner" <%= (plan_mentor == "true" || need_partner == "true") ? '' : 'style=display:none;' %>>
-                <label for="hacker-exposure">What are some of your areas of knowledge?</label>
-                <textarea multiline="true" id="hacker-need-partner-skills"><%= plan_need_partner_skills %></textarea>
+            </div>
+
+            <div id="partner" <%= (plan_mentor == "true" || need_partner == "true") ? '' : 'style=display:none;' %>>
+                <label for="hacker-need-partner-skills">What are some of your areas of knowledge, so we can better pair you up?</label>
+                <textarea multiline="true" class="form-control" id="hacker-need-partner-skills"><%= plan_need_partner_skills %></textarea>
                 <input type="text" name="plan_need_partner_skills" id="hacker-need-partner-skills-shadow"
                        style="display:none;" value="<%= plan_need_partner_skills %>">
-            </li>
-            <li>
-                <hr>
-            </li>
-            <li>
-                <button type="button">
-                    <div>Previous</div>
-                </button>
-                <button type="submit">
-                    <div>
-                        <%= update == "true" ? "Update" : 'Submit' %>
-                    </div>
-                </button>
-            </li>
+            </div>
 
+            <div id="nopartner">
+                <label for="hacker-known-partners">If you already know some or all of your partners, put their emails here so we can accept in groups!</label>
+                <textarea multiline="true" class="form-control" id="hacker-known-partners"><%= plan_known_partners %></textarea>
+                <input type="text" name="plan_known_partners" id="hacker-known-partners-skills-shadow"
+                       style="display:none;" value="<%= plan_known_partners %>">
+            </div>
 
-        </ul>
+            <br/>
+            <a href="#" class="previous btn-lg">
+                Previous
+            </a>&nbsp;
+            <a href class="btn-lg usr-btn-red" onclick="$('#application').submit()">
+                <%= update == "true" ? "Update" : 'Submit' %>
+            </a>
+        </div>
     </div>
-    <div id="success"> <!--style="display:none;"-->
+
+
+    <!--
+    <div id="success">
         <div>Success</div>
         <ul>
             <li>
@@ -322,6 +332,7 @@
             </li>
         </ul>
     </div>
+    -->
 </form>
 
 
