@@ -6,313 +6,332 @@
 
         </div>
         <div class="col-md-8">
-<form id="application" action="/users/<%= update == "true" ? "update" : 'apply' %>" method="POST">
+            <form id="application" action="/users/<%= update == "true" ? "update" : 'apply' %>" method="POST">
 
-    <div id="general">
-        <h2>Tell us about yourself...</h2>
+                <div id="general">
+                    <h2>Tell us about yourself...</h2>
 
-        <div class="form-group">
-            <label for="general-first-name">First name</label>
-            <input type="text" id="general-last-name" name="firstname" class="form-control"
-                   value="<%= firstname %>">
+                    <div class="form-group">
+                        <label for="general-first-name">First name</label>
+                        <input type="text" id="general-last-name" name="firstname" class="form-control"
+                               value="<%= firstname %>">
 
-            <label for="general-last-name">Last name</label>
-            <input type="text" id="general-first-name" name="lastname" class="form-control"
-                   value="<%= lastname %>">
+                        <label for="general-last-name">Last name</label>
+                        <input type="text" id="general-first-name" name="lastname" class="form-control"
+                               value="<%= lastname %>">
 
-            <label for="general-email">Email</label>
-            <input type="text" id="general-email" name="email" class="form-control"
-                   value="<%= email %>">
+                        <label for="general-email">Email</label>
+                        <input type="text" id="general-email" name="email" class="form-control"
+                               value="<%= email %>">
 
-            <label for="general-password">Password</label>
-            <input type="password" id="general-password" class="form-control" name="password">
+                        <label for="general-password">Password</label>
+                        <input type="password" id="general-password" class="form-control" name="password">
 
-            <label for="general-swag-size">Shirt size</label>
-            <select id="general-swag-size" class="form-control" name="swag_size">
-                <option <%= swag_size == "" ? "selected" : '' %> disabled hidden value='#'>Select a size...</option>
-                <option value="xs" <%= swag_size == "xs" ? "selected" : '' %>>xSmall</option>
-                <option value="s" <%= swag_size == "s" ? "selected" : '' %>>Small</option>
-                <option value="m" <%= swag_size == "m" ? "selected" : '' %>>Medium</option>
-                <option value="l" <%= swag_size == "l" ? "selected" : '' %>>Large</option>
-                <option value="xl" <%= swag_size == "xl" ? "selected" : '' %>>xLarge</option>
-                <option value="xxl" <%= swag_size == "xxl" ? "selected" : '' %>>xxLarge</option>
-                <option value="xxxl" <%= swag_size == "xxxl" ? "selected" : '' %>>xxxLarge</option>
-            </select>
+                        <label for="general-swag-size">Shirt size</label>
+                        <select id="general-swag-size" class="form-control" name="swag_size">
+                            <option <%= swag_size == "" ? "selected" : '' %> disabled hidden value='#'>Select a
+                                size...
+                            </option>
+                            <option value="xs" <%= swag_size == "xs" ? "selected" : '' %>>xSmall</option>
+                            <option value="s" <%= swag_size == "s" ? "selected" : '' %>>Small</option>
+                            <option value="m" <%= swag_size == "m" ? "selected" : '' %>>Medium</option>
+                            <option value="l" <%= swag_size == "l" ? "selected" : '' %>>Large</option>
+                            <option value="xl" <%= swag_size == "xl" ? "selected" : '' %>>xLarge</option>
+                            <option value="xxl" <%= swag_size == "xxl" ? "selected" : '' %>>xxLarge</option>
+                            <option value="xxxl" <%= swag_size == "xxxl" ? "selected" : '' %>>xxxLarge</option>
+                        </select>
 
-            <div class="checkbox">
-                <label>
-                    <h4>
-                        <input type="checkbox" id="general-age" name="is_18" <%= is_18 == "true" ? "checked" : '' %>>
-                        I will be at least 18 years old by April 17th, 2015
-                    </h4>
-                </label>
-            </div>
+                        <div class="checkbox">
+                            <label>
+                                <h4>
+                                    <input type="checkbox" id="general-age"
+                                           name="is_18" <%= is_18 == "true" ? "checked" : '' %>>
+                                    I will be at least 18 years old by April 17th, 2015
+                                </h4>
+                            </label>
+                        </div>
 
-            <a href="#" id="validate-general" class="btn-lg usr-btn-red">
-                Next
-            </a>
+                        <a href="#" id="validate-general" class="btn-lg usr-btn-red">
+                            Next
+                        </a>
+                    </div>
+                </div>
+
+
+                <div id="school"> <!--style="display:none;"-->
+                    <h2>School and Travel</h2>
+
+                    <div class="form-group">
+
+                        <div class="checkbox">
+                            <label>
+                                <h4><input type="checkbox" id="school-attend-school"
+                                           name="attend_school" <%= attend_school == "true" ? "checked" : '' %>>
+                                    I currently attend a university</h4>
+                            </label>
+                        </div>
+
+                        <div id="school-selector" <%= attend_school == "false" ? "style=display:none;" : '' %>>
+                            <input type="text" id="school-school" name="school" class="form-control"
+                                   placeholder="Which one?"
+                                   value="<%= school %>">
+                        </div>
+
+                        <% include part_state_select %>
+                        <% include part_country_select %>
+
+                        <label for="school-city">City</label>
+                        <input type="text" id="school-city" name="city" class="form-control" placeholder="City"
+                               value="<%= city %>">
+
+                        <label for="school-zip">Zipcode</label>
+                        <input type="text" id="school-zip" name="zip" class="form-control" placeholder="Zip"
+                               value="<%= zip %>">
+
+                        <br/>
+
+                        <p>
+                            We will be providing travel reimbursement through Venmo. If we can't send a bus your way, do
+                            you need
+                            travel reimbursement to attend MadHacks?
+                        </p>
+
+                        <div class="radio">
+                            <label><h4>
+                                    <input type="radio" id="school-travel-no" name="travel" value="false"
+                                           autocomplete="off" <%= travel == "false" ? "checked" : '' %>>
+                                    No</h4>
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label><h4>
+                                    <input type="radio" id="school-travel-yes" name="travel" value="true"
+                                           autocomplete="off" <%= travel == "true" ? "checked" : '' %>>
+                                    Yes</h4>
+                            </label>
+                        </div>
+
+                        <div id="venmo" <%= travel == "false" ? 'style=display:none;' : '' %>>
+                            <label for="school-venmo">Venmo username</label>
+                            <input type="text" id="school-venmo" name="venmo" class="form-control"
+                                   placeholder="Venmo ID"
+                                   value="<%= venmo %>">
+                        </div>
+
+                        <br/>
+                        <a href="#" class="btn-lg previous">
+                            Previous
+                        </a>
+                        &nbsp;
+                        <a href="#" id="validate-school" class="btn-lg usr-btn-red">
+                            Next
+                        </a>
+                    </div>
+                </div>
+
+
+                <div id="diet"> <!--style="display:none;"-->
+                    <h2>Dietary Restrictions</h2>
+
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label><h4>
+                                    <input type="checkbox" id="apply-food-vegetarian"
+                                           name="food_vegetarian" <%= food_vegetarian == "true" ? "checked" : '' %>>
+                                    Vegetarian
+                                </h4></label>
+                        </div>
+
+                        <div class="checkbox">
+                            <label><h4>
+                                    <input type="checkbox" id="apply-food-vegan"
+                                           name="food_vegan" <%= food_vegan == "true" ? "checked" : '' %>>
+                                    Vegan
+                                </h4></label>
+                        </div>
+
+                        <div class="checkbox">
+                            <label><h4>
+                                    <input type="checkbox" id="apply-food-glutenfree"
+                                           name="food_glutenfree" <%= food_glutenfree == "true" ? "checked" : '' %>>
+                                    Gluten Free
+                                </h4></label>
+                            </label>
+                        </div>
+
+                        <div class="checkbox">
+                            <label><h4>
+                                    <input type="checkbox" id="apply-food-pescetarian"
+                                           name="food_pescetarian" <%= food_pescetarian == "true" ? "checked" : '' %>>
+                                    Pescetarian
+                                </h4></label>
+                        </div>
+
+
+                        <div class="checkbox"><label><h4>
+                                    <input type="checkbox" id="apply-food-dairyfree"
+                                           name="food_dairyfree" <%= food_dairyfree == "true" ? "checked" : '' %>>Dairy
+                                    Free
+                                </h4></label>
+                        </div>
+
+                        <div class="checkbox"><label><h4>
+                                    <input type="checkbox" id="apply-food-kosher"
+                                           name="food_kosher" <%= food_kosher == "true" ? "checked" : '' %>>
+
+                                    Kosher</h4></label>
+                        </div>
+
+                        <div class="checkbox">
+                            <label for="apply-food-halal"><h4>
+                                    <input type="checkbox" id="apply-food-halal"
+                                           name="food_halal" <%= food_halal == "true" ? "checked" : '' %>>
+                                    Halal
+                                </h4></label>
+                        </div>
+
+                        <label for="apply-food-other">Other</label>
+                        <input type="text" id="apply-food-other" name="food_other" class="form-control"
+                               value="<%= food_other %>">
+
+                        <br/>
+                        <a href="#" class="btn-lg previous">
+                            Previous
+                        </a>&nbsp;
+                        <a id="validate-diet" class="btn-lg usr-btn-red">
+                            Next
+                        </a>
+                    </div>
+                </div>
+
+
+                <div id="resume"> <!--style="display:none;"-->
+                    <h2>Professional</h2>
+
+                    <p>These can either be usernames or URLs, we'll figure it out.</p>
+
+                    <div class="form-group">
+                        <label for="apply-Github">GitHub</label>
+                        <input type="text" id="apply-Github" name="Github" class="form-control" value="<%= Github %>">
+
+                        <label for="apply-linkedIn">LinkedIn</label>
+                        <input type="text" id="apply-linkedIn" name="linkedIn" class="form-control"
+                               value="<%= linkedIn %>">
+
+                        <label for="apply-Dribble">Dribbble</label>
+                        <input type="text" id="apply-Dribble" name="Dribble" class="form-control"
+                               value="<%= Dribble %>">
+
+                        <label for="resume-button">Resume</label>
+                        <input style="display:none" id="resume-button-shadow" type="file"
+                               name="resume" <%= resume != "Select Resume" ? "data-done='" + resume + "" : '' %>>
+                        <button id="resume-button" class="form-control" type="button">
+                            <div><%= resume %></div>
+                        </button>
+
+                        <br/>
+                        <a href="#" class="btn-lg previous">
+                            Previous
+                        </a>&nbsp;
+                        <a id="validate-resume" class="btn-lg usr-btn-red">
+                            Next
+                        </a>
+                    </div>
+                </div>
+
+                <div id="hacker"> <!--style="display:none;"-->
+                    <h2>Hacker</h2>
+
+                    <div class="form-group">
+
+                        <label for="hacker-exposure">How did you hear about MadHacks?</label>
+                        <textarea multiline="true" class="form-control" id="hacker-exposure"><%= exposure %></textarea>
+                        <input type="text" id="hacker-exposure-shadow" style="display:none;" name="exposure"
+                               value="<%= exposure %>">
+
+                        <div class="checkbox">
+                            <label>
+                                <h4>
+                                    <input type="checkbox" id="hacker-plan-hardware"
+                                           name="plan_hardware" <%= plan_hardware == "true" ? "checked" : '' %>>
+                                    I'm planning a hardware hack!
+                                </h4>
+                            </label>
+                        </div>
+
+
+                        <div id="plan-hardware-on" <%= plan_hardware == "true" ? '' : 'style=display:none;' %>>
+                            <label for="hacker-exposure">What kind of hardware?</label>
+                            <textarea multiline="true" class="form-control"
+                                      id="hacker-plan-hardware-on"><%= plan_hardware_on %></textarea>
+                            <input type="text" name="plan_hardware_on" id="hacker-plan-hardware-on-shadow"
+                                   style="display:none;"
+                                   value="<%= plan_hardware_on %>">
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <h4>
+                                    <input type="checkbox" id="hacker-plan-mentee"
+                                           name="plan_mentee" <%= plan_mentee == "true" ? "checked" : '' %>>
+                                    I'd want to be mentored by other hackers
+                                </h4>
+                            </label>
+                        </div>
+
+
+                        <div class="checkbox">
+                            <label><h4>
+                                    <input type="checkbox" id="hacker-plan-mentor"
+                                           name="plan_mentor" <%= plan_mentor == "true" ? "checked" : '' %>>
+                                    I'd love to be a mentor
+                                </h4>
+                            </label>
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <h4>
+                                    <input type="checkbox" id="hacker-need-partner"
+                                           name="need_partner" <%= need_partner == "true" ? "checked" : '' %>>
+                                    I'm looking for partners
+                                </h4>
+                            </label>
+                        </div>
+
+                        <div id="partner" <%= (plan_mentor == "true" || need_partner == "true") ? '' : 'style=display:none;' %>>
+                            <label for="hacker-need-partner-skills">What are some of your areas of knowledge, so we can
+                                better pair you up?</label>
+                            <textarea multiline="true" class="form-control"
+                                      id="hacker-need-partner-skills"><%= plan_need_partner_skills %></textarea>
+                            <input type="text" name="plan_need_partner_skills" id="hacker-need-partner-skills-shadow"
+                                   style="display:none;" value="<%= plan_need_partner_skills %>">
+                        </div>
+
+                        <div id="nopartner">
+                            <label for="hacker-known-partners">If you already know some or all of your partners, put
+                                their emails here so we can accept in groups!</label>
+                            <textarea multiline="true" class="form-control"
+                                      id="hacker-known-partners"><%= plan_known_partners %></textarea>
+                            <input type="text" name="plan_known_partners" id="hacker-known-partners-skills-shadow"
+                                   style="display:none;" value="<%= plan_known_partners %>">
+                        </div>
+
+                        <br/>
+                        <a href="#" class="previous btn-lg">
+                            Previous
+                        </a>&nbsp;
+                        <a href class="btn-lg usr-btn-red" onclick="$('#application').submit()">
+                            <%= update == "true" ? "Update" : 'Submit' %>
+                        </a>
+                    </div>
+                </div>
+            </form>
         </div>
-    </div>
-
-
-    <div id="school"> <!--style="display:none;"-->
-        <h2>School and Travel</h2>
-
-        <div class="form-group">
-
-            <div class="checkbox">
-                <label>
-                    <h4><input type="checkbox" id="school-attend-school"
-                               name="attend_school" <%= attend_school == "true" ? "checked" : '' %>>
-                        I currently attend a university</h4>
-                </label>
-            </div>
-
-            <div id="school-selector" <%= attend_school == "false" ? "style=display:none;" : '' %>>
-                <input type="text" id="school-school" name="school" class="form-control" placeholder="Which one?"
-                       value="<%= school %>">
-            </div>
-
-            <% include part_state_select %>
-            <% include part_country_select %>
-
-            <label for="school-city">City</label>
-            <input type="text" id="school-city" name="city" class="form-control" placeholder="City" value="<%= city %>">
-
-            <label for="school-zip">Zipcode</label>
-            <input type="text" id="school-zip" name="zip" class="form-control" placeholder="Zip" value="<%= zip %>">
-
-            <br/>
-
-            <p>
-                We will be providing travel reimbursement through Venmo. If we can't send a bus your way, do you need
-                travel reimbursement to attend MadHacks?
-            </p>
-
-            <div class="radio">
-                <label><h4>
-                    <input type="radio" id="school-travel-no" name="travel" value="false"
-                           autocomplete="off" <%= travel == "false" ? "checked" : '' %>>
-                    No</h4>
-                </label>
-            </div>
-
-            <div class="radio">
-                <label><h4>
-                    <input type="radio" id="school-travel-yes" name="travel" value="true"
-                           autocomplete="off" <%= travel == "true" ? "checked" : '' %>>
-                    Yes</h4>
-                </label>
-            </div>
-
-            <div id="venmo" <%= travel == "false" ? 'style=display:none;' : '' %>>
-                <label for="school-venmo">Venmo username</label>
-                <input type="text" id="school-venmo" name="venmo" class="form-control" placeholder="Venmo ID"
-                       value="<%= venmo %>">
-            </div>
-
-            <br />
-            <a href="#" class="btn-lg previous">
-                Previous
-            </a>
-            &nbsp;
-            <a href="#" id="validate-school" class="btn-lg usr-btn-red">
-                Next
-            </a>
-        </div>
-    </div>
-
-
-    <div id="diet"> <!--style="display:none;"-->
-        <h2>Dietary Restrictions</h2>
-
-        <div class="form-group">
-            <div class="checkbox">
-                <label><h4>
-                        <input type="checkbox" id="apply-food-vegetarian"
-                               name="food_vegetarian" <%= food_vegetarian == "true" ? "checked" : '' %>>
-                        Vegetarian
-                    </h4></label>
-            </div>
-
-            <div class="checkbox">
-                <label><h4>
-                        <input type="checkbox" id="apply-food-vegan"
-                               name="food_vegan" <%= food_vegan == "true" ? "checked" : '' %>>
-                        Vegan
-                    </h4></label>
-            </div>
-
-            <div class="checkbox">
-                <label><h4>
-                        <input type="checkbox" id="apply-food-glutenfree"
-                               name="food_glutenfree" <%= food_glutenfree == "true" ? "checked" : '' %>>
-                        Gluten Free
-                    </h4></label>
-                </label>
-            </div>
-
-            <div class="checkbox">
-                <label><h4>
-                        <input type="checkbox" id="apply-food-pescetarian"
-                               name="food_pescetarian" <%= food_pescetarian == "true" ? "checked" : '' %>>
-                        Pescetarian
-                    </h4></label>
-            </div>
-
-
-            <div class="checkbox"><label><h4>
-                        <input type="checkbox" id="apply-food-dairyfree"
-                               name="food_dairyfree" <%= food_dairyfree == "true" ? "checked" : '' %>>Dairy Free
-                    </h4></label>
-            </div>
-
-            <div class="checkbox"><label><h4>
-                        <input type="checkbox" id="apply-food-kosher"
-                               name="food_kosher" <%= food_kosher == "true" ? "checked" : '' %>>
-
-                        Kosher</h4></label>
-            </div>
-
-            <div class="checkbox">
-                <label for="apply-food-halal"><h4>
-                        <input type="checkbox" id="apply-food-halal"
-                               name="food_halal" <%= food_halal == "true" ? "checked" : '' %>>
-                        Halal
-                    </h4></label>
-            </div>
-
-            <label for="apply-food-other">Other</label>
-            <input type="text" id="apply-food-other" name="food_other" class="form-control"
-                   value="<%= food_other %>">
-
-            <br/>
-            <a href="#" class="btn-lg previous">
-                Previous
-            </a>&nbsp;
-            <a id="validate-diet" class="btn-lg usr-btn-red">
-                Next
-            </a>
-        </div>
-    </div>
-
-
-    <div id="resume"> <!--style="display:none;"-->
-        <h2>Professional</h2>
-        <p>These can either be usernames or URLs, we'll figure it out.</p>
-        <div class="form-group">
-                <label for="apply-Github">GitHub</label>
-                <input type="text" id="apply-Github" name="Github" class="form-control" value="<%= Github %>">
-
-                <label for="apply-linkedIn">LinkedIn</label>
-                <input type="text" id="apply-linkedIn" name="linkedIn" class="form-control" value="<%= linkedIn %>">
-
-                <label for="apply-Dribble">Dribbble</label>
-                <input type="text" id="apply-Dribble" name="Dribble" class="form-control" value="<%= Dribble %>">
-
-                <label for="resume-button">Resume</label>
-                <input style="display:none" id="resume-button-shadow" type="file"
-                       name="resume" <%= resume != "Select Resume" ? "data-done='" + resume + "" : '' %>>
-                <button id="resume-button" class="form-control" type="button">
-                    <div><%= resume %></div>
-                </button>
-
-                <br />
-                <a href="#" class="btn-lg previous">
-                    Previous
-                </a>&nbsp;
-                <a id="validate-resume" class="btn-lg usr-btn-red">
-                    Next
-                </a>
-        </div>
-    </div>
-
-    <div id="hacker"> <!--style="display:none;"-->
-        <h2>Hacker</h2>
-
-        <div class="form-group">
-
-            <label for="hacker-exposure">How did you hear about MadHacks?</label>
-            <textarea multiline="true" class="form-control" id="hacker-exposure"><%= exposure %></textarea>
-            <input type="text" id="hacker-exposure-shadow" style="display:none;" name="exposure"
-                   value="<%= exposure %>">
-
-            <div class="checkbox">
-                <label>
-                    <h4>
-                        <input type="checkbox" id="hacker-plan-hardware"
-                               name="plan_hardware" <%= plan_hardware == "true" ? "checked" : '' %>>
-                        I'm planning a hardware hack!
-                    </h4>
-                </label>
-            </div>
-
-
-            <div id="plan-hardware-on" <%= plan_hardware == "true" ? '' : 'style=display:none;' %>>
-                <label for="hacker-exposure">What kind of hardware?</label>
-                <textarea multiline="true" class="form-control" id="hacker-plan-hardware-on"><%= plan_hardware_on %></textarea>
-                <input type="text" name="plan_hardware_on" id="hacker-plan-hardware-on-shadow" style="display:none;"
-                       value="<%= plan_hardware_on %>">
-            </div>
-
-            <div class="checkbox">
-                <label>
-                    <h4>
-                <input type="checkbox" id="hacker-plan-mentee"
-                       name="plan_mentee" <%= plan_mentee == "true" ? "checked" : '' %>>
-                            I'd want to be mentored by other hackers
-                        </h4>
-                </label>
-            </div>
-
-
-            <div class="checkbox">
-                <label><h4>
-                <input type="checkbox" id="hacker-plan-mentor"
-                       name="plan_mentor" <%= plan_mentor == "true" ? "checked" : '' %>>
-                    I'd love to be a mentor
-                    </h4>
-                </label>
-            </div>
-
-            <div class="checkbox">
-                <label>
-                    <h4>
-                        <input type="checkbox" id="hacker-need-partner"
-                               name="need_partner" <%= need_partner == "true" ? "checked" : '' %>>
-                        I'm looking for partners
-                    </h4>
-                </label>
-            </div>
-
-            <div id="partner" <%= (plan_mentor == "true" || need_partner == "true") ? '' : 'style=display:none;' %>>
-                <label for="hacker-need-partner-skills">What are some of your areas of knowledge, so we can better pair you up?</label>
-                <textarea multiline="true" class="form-control" id="hacker-need-partner-skills"><%= plan_need_partner_skills %></textarea>
-                <input type="text" name="plan_need_partner_skills" id="hacker-need-partner-skills-shadow"
-                       style="display:none;" value="<%= plan_need_partner_skills %>">
-            </div>
-
-            <div id="nopartner">
-                <label for="hacker-known-partners">If you already know some or all of your partners, put their emails here so we can accept in groups!</label>
-                <textarea multiline="true" class="form-control" id="hacker-known-partners"><%= plan_known_partners %></textarea>
-                <input type="text" name="plan_known_partners" id="hacker-known-partners-skills-shadow"
-                       style="display:none;" value="<%= plan_known_partners %>">
-            </div>
-
-            <br/>
-            <a href="#" class="previous btn-lg">
-                Previous
-            </a>&nbsp;
-            <a href class="btn-lg usr-btn-red" onclick="$('#application').submit()">
-                <%= update == "true" ? "Update" : 'Submit' %>
-            </a>
-        </div>
-    </div>
-</form>
-</div>
         <div class="col-md-2">
 
         </div>
-        </div>
+    </div>
 </div>
 <% include part_foot %>
