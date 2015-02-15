@@ -90,11 +90,15 @@ p, label {
     text-shadow: #333333 1px 1px 0px ;
 }
 
-/* Labels are basically the same style but a little bit smaller for the registration form. Also add some space above
- * them.*/
+/* Labels are basically the same style but a little bit smaller for the registration form. Also add some space below our
+ * form controls. */
 label {
     font-size: 1.25em;
-    margin-top: 1em;
+    /*margin-top: 1em;*/
+}
+
+.form-control {
+    margin-bottom: 1em;
 }
 
 /**
