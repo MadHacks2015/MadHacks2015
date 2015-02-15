@@ -1,5 +1,6 @@
-<select id="school-state" name="state">
-	<option <%= state=="" ? "selected" : '' %> disabled hidden value=''>State</option>
+<label for="school-state">State</label>
+<select id="school-state" class="form-control" name="state">
+	<option <%= state=="" ? "selected" : '' %> disabled hidden value=''>Select a state...</option>
 	<option <%= state=="xx" ? "selected" : '' %> value="xx">Not US</option>
 	<option <%= state=="AL" ? "selected" : '' %> value="AL">Alabama</option>
 	<option <%= state=="AK" ? "selected" : '' %> value="AK">Alaska</option>

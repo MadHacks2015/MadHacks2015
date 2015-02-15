@@ -8,20 +8,21 @@
 
         <div class="form-group">
             <label for="general-first-name">First name</label>
-            <input type="text" id="general-last-name" name="firstname" class="form-control" placeholder="First Name"
+            <input type="text" id="general-last-name" name="firstname" class="form-control"
                    value="<%= firstname %>">
 
             <label for="general-last-name">Last name</label>
-            <input type="text" id="general-first-name" name="lastname" class="form-control" placeholder="Last Name"
+            <input type="text" id="general-first-name" name="lastname" class="form-control"
                    value="<%= lastname %>">
 
             <label for="general-email">Email</label>
-            <input type="text" id="general-email" name="email" class="form-control" placeholder="Email" value="<%= email %>">
+            <input type="text" id="general-email" name="email" class="form-control"
+                   value="<%= email %>">
 
             <label for="general-password">Password</label>
-            <input type="password" id="general-password" class="form-control" name="password" placeholder="Password">
+            <input type="password" id="general-password" class="form-control" name="password">
 
-            <label for="general-swag-size">Swag size</label>
+            <label for="general-swag-size">Shirt size</label>
             <select id="general-swag-size" class="form-control" name="swag_size">
                 <option <%= swag_size == "" ? "selected" : '' %> disabled hidden value='#'>Select a size...</option>
                 <option value="xs" <%= swag_size == "xs" ? "selected" : '' %>>xSmall</option>
@@ -35,81 +36,88 @@
 
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" id="general-age" name="is_18" <%= is_18 == "true" ? "checked" : '' %>>
-                    <h4>I will be at least 18 years old by April 17th, 2015</h4>
+                    <h4>
+                        <input type="checkbox" id="general-age" name="is_18" <%= is_18 == "true" ? "checked" : '' %>>
+                        I will be at least 18 years old by April 17th, 2015
+                    </h4>
                 </label>
             </div>
 
-            <button id="validate-general" type="button">
-                <div>Next</div>
-            </button>
+            <a href="#" id="validate-general" class="btn-lg usr-btn-red">
+                Next
+            </a>
         </div>
     </div>
 
 
-
-
     <div id="school" style="display:none;">
-        <div>School</div>
-        <ul>
-            <li>
-                <input type="checkbox" id="school-attend-school"
-                       name="attend_school" <%= attend_school == "true" ? "checked" : '' %>>
-                <label for="school-attend-school">Do you attend a university?
-                    <div>
-                        <div></div>
-                    </div>
+        <h2>School and Travel</h2>
+
+        <div class="form-group">
+
+            <div class="checkbox">
+                <label>
+                    <h4><input type="checkbox" id="school-attend-school"
+                               name="attend_school" <%= attend_school == "true" ? "checked" : '' %>>
+                        I currently attend a university</h4>
                 </label>
-            </li>
-            <li id="school-selector" <%= attend_school == "false" ? "style=display:none;" : '' %>>
-                <input type="text" id="school-school" name="school" placeholder="School" value="<%= school %>">
-            </li>
-            <li>
-                <% include part_state_select %>
-                <% include part_country_select %>
-            </li>
-            <li>
-                <input type="text" id="school-city" name="city" placeholder="City" value="<%= city %>">
-                <input type="text" id="school-zip" name="zip" placeholder="Zip" value="<%= zip %>">
-            </li>
-            <li>
-                <span>Travel Reimbursement: </span>
-            </li>
-            <li>
-                <div>
+            </div>
+
+            <div id="school-selector" <%= attend_school == "false" ? "style=display:none;" : '' %>>
+                <input type="text" id="school-school" name="school" class="form-control" placeholder="Which one?"
+                       value="<%= school %>">
+            </div>
+
+            <% include part_state_select %>
+            <% include part_country_select %>
+
+            <label for="school-city">City</label>
+            <input type="text" id="school-city" name="city" class="form-control" placeholder="City" value="<%= city %>">
+
+            <label for="school-zip">Zipcode</label>
+            <input type="text" id="school-zip" name="zip" class="form-control" placeholder="Zip" value="<%= zip %>">
+
+            <br/>
+
+            <p>
+                We will be providing travel reimbursement through Venmo. If we can't send a bus your way, do you need
+                travel reimbursement to attend MadHacks?
+            </p>
+
+            <div class="radio">
+                <label><h4>
                     <input type="radio" id="school-travel-no" name="travel" value="false"
                            autocomplete="off" <%= travel == "false" ? "checked" : '' %>>
-                    <label for="school-travel-no">No:
-                        <div>
-                            <div></div>
-                        </div>
-                    </label>
+                    No</h4>
+                </label>
+            </div>
+
+            <div class="radio">
+                <label><h4>
                     <input type="radio" id="school-travel-yes" name="travel" value="true"
                            autocomplete="off" <%= travel == "true" ? "checked" : '' %>>
-                    <label for="school-travel-yes">Yes:
-                        <div>
-                            <div></div>
-                        </div>
-                    </label>
-                </div>
-            </li>
-            <li id="venmo" <%= travel == "false" ? 'style=display:none;' : '' %>>
-                <span>venmo.com/</span>
-                <input type="text" id="school-venmo" name="venmo" placeholder="Venmo ID" value="<%= venmo %>">
-            </li>
-            <li>
-                <hr>
-            </li>
-            <li>
-                <button type="button">
-                    <div>Previous</div>
-                </button>
-                <button id="validate-school" type="button">
-                    <div>Next</div>
-                </button>
-            </li>
-        </ul>
+                    Yes</h4>
+                </label>
+            </div>
+
+            <div id="venmo" <%= travel == "false" ? 'style=display:none;' : '' %>>
+                <label for="school-venmo">Venmo username</label>
+                <input type="text" id="school-venmo" name="venmo" class="form-control" placeholder="Venmo ID"
+                       value="<%= venmo %>">
+            </div>
+
+            <br />
+            <a href="#" class="btn-lg previous">
+                Previous
+            </a>
+            &nbsp;
+            <a href="#" id="validate-school" class="btn-lg usr-btn-red">
+                Next
+            </a>
+        </div>
     </div>
+
+
     <div id="diet" style="display:none;">
         <div>Diet</div>
         <ul>
