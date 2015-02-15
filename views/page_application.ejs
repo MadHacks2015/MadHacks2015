@@ -26,7 +26,7 @@
                     <option value="xxxl" <%= swag_size == "xxxl" ? "selected" : '' %>>xxxLarge</option>
                 </select>
             </li>
-            <li style="margin-top:10px;">
+            <li>
                 <input type="checkbox" id="general-age" name="is_18" <%= is_18 == "true" ? "checked" : '' %>>
                 <label for="general-age">Will you be 18 years of age by April 17th, 2015?&nbsp;
                     <div>
@@ -182,7 +182,7 @@
                         </div>
                     </label>
                 </div>
-                <input type="text" id="apply-food-other" style="padding-top:0;margin-top:0;" name="food_other"
+                <input type="text" id="apply-food-other" name="food_other"
                        placeholder="Other" value="<%= food_other %>">
             </li>
             <li>
@@ -310,7 +310,7 @@
     </div>
     <div id="success" style="display:none;">
         <div>Success</div>
-        <ul style="text-align:center;">
+        <ul>
             <li>
                 <img src="/img/logo.png">
             </li>
@@ -415,8 +415,8 @@
 </form>
 <div id="thanks" style="display:none;">
     <div>Thanks!</div>
-    <ul style="text-align:center;">
-        <li style="margin-top:30px;">
+    <ul>
+        <li>
             <span><span>#Hack</span><span>City</span></span>
         </li>
     </ul>
