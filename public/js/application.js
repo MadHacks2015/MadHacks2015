@@ -24,8 +24,13 @@ var align = function(){
 	});
 }
 var order = function(){
-    for (var i = 0; i <= currentSection; i++) {
-        $('#' + sections[i]).css({"display" : "block"});
+    // Hide things that aren't the current section.
+    for (var i = 0; i <= sections.length; i++) {
+        if (i !== currentSection) {
+            $('#' + sections[i]).css({"display" : "none"});
+        } else {
+            $('#' + sections[i]).css({"display": "block"});
+        }
     }
 
     return;
@@ -83,10 +88,18 @@ $(document).ready(function(){
 		showing = (showing+1) % shades.length;
 		order();
 	};
+    var moveLeft = function(){
 
-	$(".left").click(function(){
-		showing = (showing-1) % shades.length;
-		order();
+        currentSection--;
+        currentSection = currentSection < 0 ? 0 : currentSection;
+
+        order();
+        return;
+    };
+
+
+    $(".previous").click(function(){
+		moveLeft();
 	});
 	$("#school-attend-school").change(function (){
 		$("#school-selector").slideToggle();
