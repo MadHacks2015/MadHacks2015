@@ -1,50 +1,54 @@
-<% include part_head %>
+    <% include part_head %>
+<div class="container">
+
 <form id="application" action="/users/<%= update == "true" ? "update" : 'apply' %>" method="POST">
 
     <div id="general">
-        <div>General</div>
-        <ul>
-            <li>
-                <input type="text" id="general-last-name" name="firstname" placeholder="First Name"
-                       value="<%= firstname %>">
-                <input type="text" id="general-first-name" name="lastname" placeholder="Last Name"
-                       value="<%= lastname %>">
-            </li>
-            <li>
-                <input type="text" id="general-email" name="email" placeholder="Email" value="<%= email %>">
-                <input type="password" id="general-password" name="password" placeholder="Password">
-            </li>
-            <li>
-                <select id="general-swag-size" name="swag_size">
-                    <option <%= swag_size == "" ? "selected" : '' %> disabled hidden value='#'>Swag Size</option>
-                    <option value="xs" <%= swag_size == "xs" ? "selected" : '' %>>xSmall</option>
-                    <option value="s" <%= swag_size == "s" ? "selected" : '' %>>Small</option>
-                    <option value="m" <%= swag_size == "m" ? "selected" : '' %>>Medium</option>
-                    <option value="l" <%= swag_size == "l" ? "selected" : '' %>>Large</option>
-                    <option value="xl" <%= swag_size == "xl" ? "selected" : '' %>>xLarge</option>
-                    <option value="xxl" <%= swag_size == "xxl" ? "selected" : '' %>>xxLarge</option>
-                    <option value="xxxl" <%= swag_size == "xxxl" ? "selected" : '' %>>xxxLarge</option>
-                </select>
-            </li>
-            <li>
-                <input type="checkbox" id="general-age" name="is_18" <%= is_18 == "true" ? "checked" : '' %>>
-                <label for="general-age">Will you be 18 years of age by April 17th, 2015?&nbsp;
-                    <div>
-                        <div></div>
-                    </div>
+        <h2>Tell us about yourself...</h2>
+
+        <div class="form-group">
+            <label for="general-first-name">First name</label>
+            <input type="text" id="general-last-name" name="firstname" class="form-control" placeholder="First Name"
+                   value="<%= firstname %>">
+
+            <label for="general-last-name">Last name</label>
+            <input type="text" id="general-first-name" name="lastname" class="form-control" placeholder="Last Name"
+                   value="<%= lastname %>">
+
+            <label for="general-email">Email</label>
+            <input type="text" id="general-email" name="email" class="form-control" placeholder="Email" value="<%= email %>">
+
+            <label for="general-password">Password</label>
+            <input type="password" id="general-password" class="form-control" name="password" placeholder="Password">
+
+            <label for="general-swag-size">Swag size</label>
+            <select id="general-swag-size" class="form-control" name="swag_size">
+                <option <%= swag_size == "" ? "selected" : '' %> disabled hidden value='#'>Select a size...</option>
+                <option value="xs" <%= swag_size == "xs" ? "selected" : '' %>>xSmall</option>
+                <option value="s" <%= swag_size == "s" ? "selected" : '' %>>Small</option>
+                <option value="m" <%= swag_size == "m" ? "selected" : '' %>>Medium</option>
+                <option value="l" <%= swag_size == "l" ? "selected" : '' %>>Large</option>
+                <option value="xl" <%= swag_size == "xl" ? "selected" : '' %>>xLarge</option>
+                <option value="xxl" <%= swag_size == "xxl" ? "selected" : '' %>>xxLarge</option>
+                <option value="xxxl" <%= swag_size == "xxxl" ? "selected" : '' %>>xxxLarge</option>
+            </select>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="general-age" name="is_18" <%= is_18 == "true" ? "checked" : '' %>>
+                    <h4>I will be at least 18 years old by April 17th, 2015</h4>
                 </label>
-            </li>
-            <li>
-                <hr>
-            </li>
-            <li>
-                <div></div>
-                <button id="validate-general" type="button">
-                    <div>Next</div>
-                </button>
-            </li>
-        </ul>
+            </div>
+
+            <button id="validate-general" type="button">
+                <div>Next</div>
+            </button>
+        </div>
     </div>
+
+
+
+
     <div id="school" style="display:none;">
         <div>School</div>
         <ul>
@@ -421,4 +425,5 @@
         </li>
     </ul>
 </div>
+    </div>
 <% include part_foot %>
