@@ -126,7 +126,7 @@ $(document).ready(function(){
 			$input.addClass("error");
 	}
 	$("#validate-general").click(function(){
-		$this = $(this).closest("ul");
+		$this = $("#general");
 		validateLength($this.find("#general-first-name"));
 		validateLength($this.find("#general-last-name"));
 		validateLength($this.find("#general-email"));
@@ -140,7 +140,7 @@ $(document).ready(function(){
 			moveRight();
 	});
 	$("#validate-school").click(function(){
-		$this = $(this).closest("ul");
+		$this = $("#school");
 		if($this.find("#school-attend-school").prop("checked")){
 			validateSelect($this.find("#school-school"));
 		}
@@ -160,7 +160,7 @@ $(document).ready(function(){
 	});
 	$("#validate-resume").click(function(){
 		if($("#resume-button-shadow").attr("data-done") == undefined){
-			$this = $(this).closest("ul");
+			$this = $("#resume");
 			var resume = $this.find("#resume-button-shadow");
 			if(resume.val().length <= 0){
 				resume.addClass("error");
