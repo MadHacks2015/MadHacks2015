@@ -215,3 +215,20 @@ label {
 .haxcontainer {
     margin-top: -3em;
 }
+
+
+/**
+ * Background image and color for application form.
+ **/
+.application {
+    padding-top: 35em;
+    background-image: url('/img/app1.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #6C543E;
+    box-shadow: #444 0px 0px 4px;
+}
+
+.applicationBG {
+    background-color: #818E7B;
+}
