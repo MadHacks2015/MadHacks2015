@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Permanent+Marker|Coda);
 
 body {
-    background-color: #0d0406;
+    background-color: #818E7B;
     font-family: 'Coda', cursive;
 }
 
@@ -227,8 +227,7 @@ label {
     background-size: contain;
     background-color: #6C543E;
     box-shadow: #444 0px 0px 4px;
-}
-
-.applicationBG {
-    background-color: #818E7B;
+    margin-bottom: 4em;
+    padding-bottom: 2em;
+    margin-top: 0px;
 }
