@@ -35,6 +35,7 @@ var blankUser = {
 	plan_mentor: 'false',
 	need_partner: 'false',
 	plan_need_partner_skills: '',
+    plan_known_partners: '',
 	update:'false'
 }
 

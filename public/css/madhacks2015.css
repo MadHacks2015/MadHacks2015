@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Permanent+Marker|Coda);
 
 body {
-    background-color: #0d0406;
+    background-color: #818E7B;
     font-family: 'Coda', cursive;
 }
 
@@ -83,11 +83,22 @@ h1 {
     font-size: 3em;
 }
 
-p {
+p, label {
     color: #eee;
     font-size: 1.5em;
     text-align: justify;
     text-shadow: #333333 1px 1px 0px ;
+}
+
+/* Labels are basically the same style but a little bit smaller for the registration form. Also add some space below our
+ * form controls. */
+label {
+    font-size: 1.25em;
+    /*margin-top: 1em;*/
+}
+
+.form-control {
+    margin-bottom: 1em;
 }
 
 /**
@@ -203,4 +214,20 @@ p {
 
 .haxcontainer {
     margin-top: -3em;
+}
+
+
+/**
+ * Background image and color for application form.
+ **/
+.application {
+    padding-top: 35em;
+    background-image: url('/img/app1.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #6C543E;
+    box-shadow: #444 0px 0px 4px;
+    margin-bottom: 4em;
+    padding-bottom: 2em;
+    margin-top: 0px;
 }

@@ -1,5 +1,6 @@
-<select id="school-country" name="country">
-	<option <%= country=="" ? "selected" : '' %>  disabled hidden value=''>Country</option>
+<label for="school-country">Country</label>
+<select id="school-country" class="form-control" name="country">
+	<option <%= country=="" ? "selected" : '' %>  disabled hidden value=''>Select a country...</option>
 	<option <%= country=="US" ? "selected" : '' %> value="US">United States</option>
 	<option <%= country=="AF" ? "selected" : '' %> value="AF">Afghanistan</option>
 	<option <%= country=="AX" ? "selected" : '' %> value="AX">Åland Islands</option>

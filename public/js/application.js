@@ -24,8 +24,13 @@ var align = function(){
 	});
 }
 var order = function(){
-    for (var i = 0; i <= currentSection; i++) {
-        $('#' + sections[i]).css({"display" : "block"});
+    // Hide things that aren't the current section.
+    for (var i = 0; i <= sections.length; i++) {
+        if (i !== currentSection) {
+            $('#' + sections[i]).css({"display" : "none"});
+        } else {
+            $('#' + sections[i]).css({"display": "block"});
+        }
     }
 
     return;
@@ -83,10 +88,18 @@ $(document).ready(function(){
 		showing = (showing+1) % shades.length;
 		order();
 	};
+    var moveLeft = function(){
 
-	$(".left").click(function(){
-		showing = (showing-1) % shades.length;
-		order();
+        currentSection--;
+        currentSection = currentSection < 0 ? 0 : currentSection;
+
+        order();
+        return;
+    };
+
+
+    $(".previous").click(function(){
+		moveLeft();
 	});
 	$("#school-attend-school").change(function (){
 		$("#school-selector").slideToggle();
@@ -126,7 +139,7 @@ $(document).ready(function(){
 			$input.addClass("error");
 	}
 	$("#validate-general").click(function(){
-		$this = $(this).closest("ul");
+		$this = $("#general");
 		validateLength($this.find("#general-first-name"));
 		validateLength($this.find("#general-last-name"));
 		validateLength($this.find("#general-email"));
@@ -140,7 +153,7 @@ $(document).ready(function(){
 			moveRight();
 	});
 	$("#validate-school").click(function(){
-		$this = $(this).closest("ul");
+		$this = $("#school");
 		if($this.find("#school-attend-school").prop("checked")){
 			validateSelect($this.find("#school-school"));
 		}
@@ -160,7 +173,7 @@ $(document).ready(function(){
 	});
 	$("#validate-resume").click(function(){
 		if($("#resume-button-shadow").attr("data-done") == undefined){
-			$this = $(this).closest("ul");
+			$this = $("#resume");
 			var resume = $this.find("#resume-button-shadow");
 			if(resume.val().length <= 0){
 				resume.addClass("error");
