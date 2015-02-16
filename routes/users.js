@@ -77,6 +77,7 @@ router.get('/unsubscribe', function(req, res){
 router.post('/apply', function(req, res){
 	var body = {};
 
+    console.log('apply page');
 	if(req.busboy) {
 		req.busboy.on("file", function(fieldName, file, filename) {
 			filename = global.s4() + global.s4() + "." + filename.split(".")[filename.split(".").length - 1];
@@ -89,7 +90,9 @@ router.post('/apply', function(req, res){
 			body[key] = value;
     	});
     	req.busboy.on('finish', function(a,b,c){
+            console.log('about to insert');
 			global.sqler.insertApplication(body, function(err){
+                console.log('application received');
 				if(err)
 					res.send(400, {success:false, error:err.err});
 				else
