@@ -93,10 +93,11 @@ router.post('/apply', function(req, res){
             console.log('about to insert');
 			global.sqler.insertApplication(body, function(err){
                 console.log('application received');
-				if(err)
-					res.send(400, {success:false, error:err.err});
-				else
-					res.send(200,{success:true});
+				if(err) {
+                    res.send(400, {success: false, error: err.err});
+                } else {
+                    res.redirect("/");
+                }
 			});
     	});
 		req.pipe(req.busboy);
