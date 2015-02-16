@@ -238,3 +238,7 @@ label {
 .error {
     border: 4px solid red;
 }
+
+.footer {
+    background-color: #222;
+}
