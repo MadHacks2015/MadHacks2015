@@ -242,3 +242,27 @@ label {
 .footer {
     background-color: #222;
 }
+
+.testimonial {
+    color: #c12e2a;
+    font-size: 1.5em;
+    background-color: rgba(10, 10, 10, .5);
+}
+
+#testiContent:before {
+    color: #fff;
+    font-size: 2em;
+    font-family: "Permanent Marker", cursive;
+    content: "\"";
+    float: left;
+    margin-right: 0.5em;
+}
+
+#testiContent:after {
+    color: #fff;
+    font-size: 2em;
+    font-family: "Permanent Marker", cursive;
+    content: "\"";
+    float: right;
+    margin-left: 0.5em;
+}

@@ -336,6 +336,58 @@
                     country. We hope to see you here!</p>
             </div>
 
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="overlayBlockDark">
+                <h3>What are people saying about MadHacks?</h3>
+                <p>We've already got optimism pouring in from your applications - check out what other hackers are excited about and looking forward to at MadHacks:</p>
+
+                <div id="testiHolder" class="testimonial">
+                    <span id="testiContent">Loading...</span>
+                </div>
+
+                <script type="text/javascript">
+
+                    var testimonials = [
+                        "MadHacks seems like a really interesting and innovative hackathon and I would love to check it out and contribute by making something awesome!",
+                        "The focus on crazy, wild ideas and pushing the boundaries that MadHacks emphasizes.",
+                        "You guys use art to show your rad-ness instead of pushing the idea of eliteness on everyone. That means you really have to be extraordinary. Props!",
+                        "You guys sound like you would be open to accepting a Mechanical Engineer. [...] I want to show that hackathons are not just for computer oriented majors.",
+                        "I love the mad scientist idea, most hackathons have cliche projects; I want to see the truly original and the insane!",
+                        "MadHacks is exciting to me because of its focus on the wacky.",
+                        "This hackathon seems unique because it encourages originality and cool hacks. It would be fun to be judged by other contestants!",
+                        "The no-holds-barred attitude. I get the feeling that this is a hackathon where it isn't just acceptable but encouraged to do something other than a web application.",
+                        "The statement about the event being about the crazy and weird really speaks for itself and makes it sound EVEN more amazing!",
+                        "Winners being chosen by the developers instead of judges... and your cool website.",
+                        "I've met some people from UW-Madison at hackathons and they're all pretty rad.",
+                    ];
+
+                    var curIdx = ~~(Math.random() * testimonials.length);
+
+                    function setQuote(idx) {
+                        $('#testiContent').text(testimonials[idx % testimonials.length]);
+                    }
+
+                    setQuote(curIdx);
+
+                    function nextQuote() {
+                        setQuote(++curIdx);
+                    }
+                </script>
+                <br />
+                <div>
+                    <a href="#" onclick="nextQuote(); return false;" class="btn btn-block">Next testimonial!</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
             <div class="overlayBlockDark">
                 <h3>Who else will be there?</h3>
 
@@ -351,6 +403,7 @@
             </div>
         </div>
     </div>
+
 </div>
 
 <div class="row vpRow bg5" id="row5">
