@@ -174,17 +174,12 @@ label {
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
-
-.sponsorLogoCol {
-    /*display: table-cell;
-    vertical-align: middle;*/
+    box-shadow: 0em 0em 1em 1em rgba(255, 255,255, 0.1);
+    background-color: rgba(255, 255,255, 0.1);
 }
 
 .sponsorLogoCol .overlayBlockDark, .sponsorLogoCol .overlayBlock, .sponsorLogoCol .overlayBlockLight  {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    background-color: inherit; /* Kill the noise */
 }
 
 /**
