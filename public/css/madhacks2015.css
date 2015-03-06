@@ -176,6 +176,17 @@ label {
     margin-right: auto;
 }
 
+.sponsorLogoCol {
+    /*display: table-cell;
+    vertical-align: middle;*/
+}
+
+.sponsorLogoCol .overlayBlockDark, .sponsorLogoCol .overlayBlock, .sponsorLogoCol .overlayBlockLight  {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 /**
  * Tint over image backgrounds.
  **/
