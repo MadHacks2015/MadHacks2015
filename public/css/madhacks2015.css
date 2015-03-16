@@ -134,6 +134,7 @@ label {
     background-color: #1a0d15;
     background-image: url('../img/banner3.jpg');
     background-size: cover;
+    background-position: center center;
 }
 
 .bg4 {
