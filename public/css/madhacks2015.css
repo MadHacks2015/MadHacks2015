@@ -289,4 +289,9 @@ li {
 
 ul.schedule li strong {
     float: right;
+    font-size: 0.9em;
+}
+
+ul.schedule li ul li {
+    font-size: 1.25em;
 }
