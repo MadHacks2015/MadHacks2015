@@ -285,3 +285,8 @@ li {
     color: #eee;
     font-size: 1.5em;
 }
+
+
+ul.schedule li strong {
+    float: right;
+}
